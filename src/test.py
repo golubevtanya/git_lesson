@@ -26,7 +26,7 @@ def main():
         tags_str = re.search(reg_tags,line)
         if not tags_str:
             continue
-        tags = set(re.findall(reg_tag, ags_str.group(1)))
+        tags = set(re.findall(reg_tag,ags_str.group(1)))
         if tags:
             for tag in tags:
                 print(year, tag.lower(),"1", sep="\t")
