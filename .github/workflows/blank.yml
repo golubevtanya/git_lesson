@@ -10,12 +10,13 @@ on:
   workflow_dispatch:
   
 jobs:
-  black:
-    runs-on: ubuntu-20.04
+  lint:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v1
+      - uses: actions/checkout@v3
+      - uses: psf/black@stable
         with:
-          python-version: 3.9
-      - run: |
-          black --check --verbose .
+          options: "--check --verbose"
+          src: "./src"
+          jupyter: true
+          version: "~= 22.0"
