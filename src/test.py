@@ -20,7 +20,7 @@ def main():
     for line in sys.stdin:
         if not all([_ in line for _ in key_words]):
             continue
-        year = re.search(reg_year, line).group(1)
+        year = re.search(reg_year,line).group(1)
         if year not in years:
             continue
         tags_str = re.search(reg_tags,line)
@@ -29,7 +29,7 @@ def main():
         tags = set(re.findall(reg_tag,ags_str.group(1)))
         if tags:
             for tag in tags:
-                print(year, tag.lower(),"1", sep="\t")
+                print(year, tag.lower(),"1",sep="\t")
 
 
 if __name__ == "__main__":
